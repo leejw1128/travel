@@ -10,4 +10,10 @@ public interface RouteDao {
     List<Route> findAll(int cid, int currentPage, int pageSize, String rname);
 
     Route findRoute(int parseInt);
+
+    List<Route> findPopular(int cid,int pageSize);
+
+    List<Route> findNewest(int parseInt, int parseInt1);
+
+    List<Route> findThemeTour(int parseInt, int parseInt1);
 }
