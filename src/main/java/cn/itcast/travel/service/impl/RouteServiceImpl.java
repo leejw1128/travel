@@ -52,4 +52,22 @@ public class RouteServiceImpl implements RouteService {
         return route;
     }
 
+    @Override
+    public List<Route> findPopular(String cidStr,String pageSizeStr) {
+        List<Route> routeList = routeDao.findPopular(Integer.parseInt(cidStr), Integer.parseInt(pageSizeStr));
+        return routeList;
+    }
+
+    @Override
+    public List<Route> findNewest(String cidStr, String pageSizeStr) {
+        List<Route> routeList = routeDao.findNewest(Integer.parseInt(cidStr), Integer.parseInt(pageSizeStr));
+        return routeList;
+    }
+
+    @Override
+    public List<Route> findThemeTour(String cidStr, String pageSizeStr) {
+        List<Route> routeList = routeDao.findThemeTour(Integer.parseInt(cidStr), Integer.parseInt(pageSizeStr));
+        return routeList;
+    }
+
 }

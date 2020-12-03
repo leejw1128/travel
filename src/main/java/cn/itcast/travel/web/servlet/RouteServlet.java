@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/route/*")
 public class RouteServlet extends BaseServlet {
@@ -80,5 +81,23 @@ public class RouteServlet extends BaseServlet {
             uid=user.getUid();
         }
         favoriteService.add(rid,uid);
+    }
+    public void findPopular(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String cidStr=request.getParameter("cid");
+        String pageSizeStr=request.getParameter("pageSize");
+        List<Route> routeList = routeService.findPopular(cidStr, pageSizeStr);
+        writeValue(routeList,response);
+    }
+    public void findNewest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String cidStr=request.getParameter("cid");
+        String pageSizeStr=request.getParameter("pageSize");
+        List<Route>routeList=routeService.findNewest(cidStr, pageSizeStr);
+        writeValue(routeList,response);
+    }
+    public void findThemeTour(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String cidStr=request.getParameter("cid");
+        String pageSizeStr=request.getParameter("pageSize");
+        List<Route>routeList=routeService.findThemeTour(cidStr, pageSizeStr);
+        writeValue(routeList,response);
     }
 }
